@@ -7,18 +7,61 @@
     <meta name="description" content="">
     <meta name="author" content="Adam Jarvis">
     <link rel="icon" href="../../favicon.ico">
-
-    <title>Responsive Navigation w/Bootstrap 4</title>
-
+    <title>Responsive Mega Menu with Bootstrap 4</title>
     <!-- Bootstrap core CSS -->
-    <link href="assets/libs/bootstrap-4//bootstrap.min.css" rel="stylesheet">
-
+    <link href="assets/libs/bootstrap-4/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/mega-menu.css" rel="stylesheet">
   </head>
 
   <body>
 
-    
-
+    <div class="container-fluid">
+      
+      <nav class="navbar navbar-toggleable-md navbar-inverse nav-mega-menu fixed-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item has-child">
+              <a class="nav-link" href="#">Link</a>
+              <div class="nav-sub-menu row">
+                <ul class="col-2">
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                </ul>
+                <ul class="col-2">
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                  <li><a href="#">Sub Item Link</a></li>
+                </ul>
+              </div><!-- /.nav-sub-menu -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+          <a class="nav-link">Search icon</a>
+        </div>
+      </nav>
+      
+    </div><!-- /.container -->
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
