@@ -1,13 +1,9 @@
-/**** MODERN NAVBAR DEMO STYLING ****/
-.modern-navbar {
-  padding: 0; }
-
 /**** COLORS ****/
 /**** MODERN NAVBAR SUB MENU ****/
 .modern-navbar .m-nav-parent:hover .m-nav-child {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0); }
+  -webkit-transform: translateY(0.75rem);
+          transform: translateY(0.75rem); }
 
 .modern-navbar .m-nav-parent .m-nav-child {
   background: #eeeeee;

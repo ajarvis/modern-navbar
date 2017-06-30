@@ -1,7 +1,4 @@
-/**** MODERN NAVBAR DEMO STYLING ****/
-.modern-navbar  {
-  padding: 0;
-}
+
 
 /**** COLORS ****/
 $bg-light-grey: #eeeeee;
@@ -9,11 +6,13 @@ $text-primary: #5c7cfa;
 
 /**** MODERN NAVBAR SUB MENU ****/
 .modern-navbar {
+
   .m-nav-parent {
+
     &:hover {
       .m-nav-child {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(.75rem);
       }
     }
     .m-nav-child {
