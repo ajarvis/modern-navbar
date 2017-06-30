@@ -1,0 +1,27 @@
+/**** MODERN NAVBAR DEMO STYLING ****/
+.modern-navbar {
+  padding: 0; }
+
+/**** COLORS ****/
+/**** MODERN NAVBAR SUB MENU ****/
+.modern-navbar .m-nav-parent:hover .m-nav-child {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
+
+.modern-navbar .m-nav-parent .m-nav-child {
+  background: #eeeeee;
+  border-bottom: 1px solid #dddddd;
+  left: 0;
+  opacity: 0;
+  padding: 1rem 2rem;
+  position: absolute;
+  -webkit-transform: translateY(-1000px);
+          transform: translateY(-1000px);
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+  width: 100%; }
+  .modern-navbar .m-nav-parent .m-nav-child .m-nav-list {
+    list-style-type: none; }
+    .modern-navbar .m-nav-parent .m-nav-child .m-nav-list-item-link {
+      color: #5c7cfa; }

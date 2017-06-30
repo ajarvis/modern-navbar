@@ -2,7 +2,6 @@ var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
     rename      = require('gulp-rename'),
     cssmin      = require('gulp-minify-css'),
-    concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
     jshint      = require('gulp-jshint'),
     scsslint    = require('gulp-sass-lint'),
@@ -16,14 +15,13 @@ var gulp        = require('gulp'),
     deploy      = require('gulp-gh-pages'),
     notify      = require('gulp-notify');
 
-
 gulp.task('scss', function() {
   var onError = function(err) {
     notify.onError({
-        title:    "Gulp",
-        subtitle: "Failure!",
-        message:  "Error: <%= error.message %>",
-        sound:    "Beep"
+      title:    "Gulp",
+      subtitle: "Failure!",
+      message:  "Error: <%= error.message %>",
+      sound:    "Beep"
     })(err);
     this.emit('end');
   };
@@ -33,23 +31,23 @@ gulp.task('scss', function() {
 	  .pipe(sass())
 	  .pipe(prefix())
 	  .pipe(gulp.dest('dist/assets/css'))
-	  .pipe(reload({stream:true}))
 	  .pipe(cssmin())
 	  .pipe(rename({ suffix: '.min' }))
 	  .pipe(gulp.dest('dist/assets/css'))
+    .pipe(reload({stream:true}))
 	});
 
 gulp.task('browser-sync', function() {
-    browserSync({
-        server: {
-            baseDir: "dist/"
-        }
-    });
+  browserSync({
+    server: {
+      baseDir: "dist/"
+    }
+  });
 });
 
 gulp.task('deploy', function () {
-    return gulp.src('dist/**/*')
-        .pipe(deploy());
+  return gulp.src('dist/**/*')
+    .pipe(deploy());
 });
 
 gulp.task('copy', function() {
@@ -61,7 +59,6 @@ gulp.task('copy', function() {
 gulp.task('js', function() {
   gulp.src('src/assets/js/*.js')
     .pipe(uglify())
-    .pipe(concat('j.js'))
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(reload({stream:true}));
 });
@@ -72,15 +69,15 @@ gulp.task('scss-lint', function() {
 });
 
 gulp.task('minify-html', function() {
-    var opts = {
-      comments:true,
-      spare:true
-    };
+	var opts = {
+	  comments:true,
+	  spare:true
+	};
 
-  gulp.src('src/*.html')
-    .pipe(minifyHTML(opts))
-    .pipe(gulp.dest('dist/'))
-    .pipe(reload({stream:true}));
+gulp.src('src/*.html')
+  .pipe(minifyHTML(opts))
+  .pipe(gulp.dest('dist/'))
+  .pipe(reload({stream:true}));
 });
 
 gulp.task('jshint', function() {
@@ -97,13 +94,15 @@ gulp.task('watch', function() {
 });
 
 gulp.task('imgmin', function () {
-    return gulp.src('src/assets/img/*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('dist/assets/img'));
+  return gulp.src('src/assets/img/*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('dist/assets/img'));
 });
 
+// Run gulp tasks
+// Note order of operations
 gulp.task('default', ['browser-sync', 'copy', 'js', 'imgmin', 'minify-html', 'scss', 'watch']);

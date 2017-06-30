@@ -1,0 +1,44 @@
+/**** MODERN NAVBAR DEMO STYLING ****/
+.modern-navbar  {
+  padding: 0;
+}
+
+/**** COLORS ****/
+$bg-light-grey: #eeeeee;
+$text-primary: #5c7cfa;
+
+/**** MODERN NAVBAR SUB MENU ****/
+.modern-navbar {
+  .m-nav-parent {
+    &:hover {
+      .m-nav-child {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .m-nav-child {
+      background: $bg-light-grey;
+      border-bottom: 1px solid #dddddd;
+      left: 0;
+      opacity: 0;
+      padding: 1rem 2rem;
+      position: absolute;
+      transform: translateY(-1000px);
+      transition: opacity 500ms;
+      width: 100%;
+
+      .m-nav-list {
+        list-style-type: none;
+
+        &-item {
+
+          &-link {
+            color: $text-primary;
+          }
+        }
+      }
+    }
+
+  }
+
+}
