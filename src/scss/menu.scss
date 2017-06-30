@@ -1,23 +1,44 @@
-
-
+/*------------------------------------------------------------------
+  VARIABLES
+------------------------------------------------------------------*/
 /**** COLORS ****/
-$bg-light-grey: #eeeeee;
+$bg-light-grey: #f1f3f5;
+$bg-dark-grey: #868e96;
 $text-primary: #5c7cfa;
+/**** PADDING ****/
+$menu-height: 50px; // height of the main navbar
+$nav-item-padding: 8px; // padding around main navbar link items
+
+/**** BOOTSTRAP FIXES ****/
+.has-fixed-nav {
+  margin-top: $menu-height; // Bootstrap 4 Alpha 6 does not account for fixed nav
+}
 
 /**** MODERN NAVBAR SUB MENU ****/
 .modern-navbar {
+  padding-bottom: 0;
+  padding-top: 0;
+
+  .nav-item {
+    padding: $nav-item-padding;
+  }
 
   .m-nav-parent {
 
     &:hover {
+      background-color: $bg-light-grey;
+
+      .nav-link {
+        color: $bg-dark-grey;
+      }
+
       .m-nav-child {
         opacity: 1;
-        transform: translateY(.75rem);
+        transform: translateY($nav-item-padding - 1px);
       }
     }
     .m-nav-child {
-      background: $bg-light-grey;
-      border-bottom: 1px solid #dddddd;
+      background-color: $bg-light-grey;
       left: 0;
       opacity: 0;
       padding: 1rem 2rem;
@@ -25,6 +46,7 @@ $text-primary: #5c7cfa;
       transform: translateY(-1000px);
       transition: opacity 500ms;
       width: 100%;
+      z-index: 99;
 
       .m-nav-list {
         list-style-type: none;
@@ -37,7 +59,12 @@ $text-primary: #5c7cfa;
         }
       }
     }
-
   }
+}
 
+
+
+/**** DEMO STYLES ****/
+.jumbotron {
+  background-color: $bg-dark-grey;
 }

@@ -1,23 +1,43 @@
+/*------------------------------------------------------------------
+  VARIABLES
+------------------------------------------------------------------*/
 /**** COLORS ****/
-/**** MODERN NAVBAR SUB MENU ****/
-.modern-navbar .m-nav-parent:hover .m-nav-child {
-  opacity: 1;
-  -webkit-transform: translateY(0.75rem);
-          transform: translateY(0.75rem); }
+/**** PADDING ****/
+/**** BOOTSTRAP FIXES ****/
+.has-fixed-nav {
+  margin-top: 50px; }
 
-.modern-navbar .m-nav-parent .m-nav-child {
-  background: #eeeeee;
-  border-bottom: 1px solid #dddddd;
-  left: 0;
-  opacity: 0;
-  padding: 1rem 2rem;
-  position: absolute;
-  -webkit-transform: translateY(-1000px);
-          transform: translateY(-1000px);
-  -webkit-transition: opacity 500ms;
-  transition: opacity 500ms;
-  width: 100%; }
-  .modern-navbar .m-nav-parent .m-nav-child .m-nav-list {
-    list-style-type: none; }
-    .modern-navbar .m-nav-parent .m-nav-child .m-nav-list-item-link {
-      color: #5c7cfa; }
+/**** MODERN NAVBAR SUB MENU ****/
+.modern-navbar {
+  padding-bottom: 0;
+  padding-top: 0; }
+  .modern-navbar .nav-item {
+    padding: 8px; }
+  .modern-navbar .m-nav-parent:hover {
+    background-color: #f1f3f5; }
+    .modern-navbar .m-nav-parent:hover .nav-link {
+      color: #868e96; }
+    .modern-navbar .m-nav-parent:hover .m-nav-child {
+      opacity: 1;
+      -webkit-transform: translateY(7px);
+              transform: translateY(7px); }
+  .modern-navbar .m-nav-parent .m-nav-child {
+    background-color: #f1f3f5;
+    left: 0;
+    opacity: 0;
+    padding: 1rem 2rem;
+    position: absolute;
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    -webkit-transition: opacity 500ms;
+    transition: opacity 500ms;
+    width: 100%;
+    z-index: 99; }
+    .modern-navbar .m-nav-parent .m-nav-child .m-nav-list {
+      list-style-type: none; }
+      .modern-navbar .m-nav-parent .m-nav-child .m-nav-list-item-link {
+        color: #5c7cfa; }
+
+/**** DEMO STYLES ****/
+.jumbotron {
+  background-color: #868e96; }
