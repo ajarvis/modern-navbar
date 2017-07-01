@@ -8,7 +8,6 @@ $grey-1: #f1f3f5;
 $grey-2: #e9ecef;
 $grey-5: #adb5bd;
 $grey-6: #868e96;
-
 $primary: #5c7cfa;
 
 /**** SPACING ****/
@@ -16,22 +15,40 @@ $menu-height: 50px; // height of the main navbar
 
 
 /**** MODERN NAVBAR SUB MENU ****/
+.modern-nav-toggle {
+
+}
+.modern-nav-toggle-input {
+  transform: translateY(-1000px);
+}
+
+.modern-nav-toggle-input[type=checkbox]:checked {
+  transform: translateX(300px);
+}
+.modern-nav-toggle-input[type=checkbox]:checked + .modern-nav {
+  transform: translateX(0);
+}
+
 .modern-nav {
-  align-items: center;
   background-color: $white;
   display: flex;
+  flex-direction: column;
+  left: 0;
+  height: 100vh;
   padding: 0 1rem;
-  position: relative;
-
-  .modern-nav-brand {
-
-  }
+  position: fixed;
+  transform: translateX(-300px);
+  top: 0;
+  width: 300px;
+  z-index: 9;
 
   .modern-nav-list {
     display: flex;
     list-style-type: none;
     flex: 1;
+    flex-direction: column;
     margin: 0;
+    padding: 0;
 
     .modern-nav-list-item {
       display: flex;
@@ -58,7 +75,7 @@ $menu-height: 50px; // height of the main navbar
       .modern-nav-sub {
         background-color: $grey-1;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         left: 0;
         opacity: 0;
         min-height: 200px;
@@ -106,9 +123,37 @@ $menu-height: 50px; // height of the main navbar
 }
 
 
-@media (min-width: 576px) { }
+@media (min-width: 576px) {
 
-@media (min-width: 768px) { }
+}
+
+@media (min-width: 768px) {
+  .modern-nav-toggle, .modern-nav-toggle-input {
+    display: none;
+  }
+  .modern-nav {
+    align-items: center;
+    flex-direction: row;
+    height: auto;
+    left: auto;
+    position: relative;
+    transform: none;
+    top: auto;
+    width: auto;
+    .modern-nav-list {
+      flex-direction: row;
+      .modern-nav-list-item {
+        .modern-nav-sub {
+          flex-direction: row;
+        }
+      }
+    }
+    .modern-nav-brand {
+      padding-right: 2rem;
+    }
+
+  }
+}
 
 @media (min-width: 992px) { }
 

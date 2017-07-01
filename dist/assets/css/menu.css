@@ -5,16 +5,36 @@
 /* Colors provided by Open Color https://yeun.github.io/open-color/ */
 /**** SPACING ****/
 /**** MODERN NAVBAR SUB MENU ****/
+.modern-nav-toggle-input {
+  -webkit-transform: translateY(-1000px);
+          transform: translateY(-1000px); }
+
+.modern-nav-toggle-input[type=checkbox]:checked {
+  -webkit-transform: translateX(300px);
+          transform: translateX(300px); }
+
+.modern-nav-toggle-input[type=checkbox]:checked + .modern-nav {
+  -webkit-transform: translateX(0);
+          transform: translateX(0); }
+
 .modern-nav {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 0;
+  height: 100vh;
   padding: 0 1rem;
-  position: relative; }
+  position: fixed;
+  -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
+  top: 0;
+  width: 300px;
+  z-index: 9; }
   .modern-nav .modern-nav-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -23,7 +43,12 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    margin: 0; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+    padding: 0; }
     .modern-nav .modern-nav-list .modern-nav-list-item {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -55,10 +80,10 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: horizontal;
+        -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+            -ms-flex-direction: column;
+                flex-direction: column;
         left: 0;
         opacity: 0;
         min-height: 200px;
@@ -92,6 +117,37 @@
       opacity: 1;
       -webkit-transform: translateY(50px);
               transform: translateY(50px); }
+
+@media (min-width: 768px) {
+  .modern-nav-toggle, .modern-nav-toggle-input {
+    display: none; }
+  .modern-nav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: auto;
+    left: auto;
+    position: relative;
+    -webkit-transform: none;
+            transform: none;
+    top: auto;
+    width: auto; }
+    .modern-nav .modern-nav-list {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+      .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-sub {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row; }
+    .modern-nav .modern-nav-brand {
+      padding-right: 2rem; } }
 
 /**** DEMO STYLES ****/
 .jumbotron {
