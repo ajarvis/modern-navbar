@@ -1,8 +1,9 @@
 /*------------------------------------------------------------------
-  VARIABLES
+  SETTINGS
 ------------------------------------------------------------------*/
 /**** COLORS ****/
-/**** PADDING ****/
+/* Colors provided by Open Color https://yeun.github.io/open-color/ */
+/**** SPACING ****/
 /**** MODERN NAVBAR SUB MENU ****/
 .modern-nav {
   -webkit-box-align: center;
@@ -31,6 +32,7 @@
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
+        border-bottom: 2px solid transparent;
         color: #868e96;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -39,12 +41,15 @@
             -ms-flex: 1;
                 flex: 1;
         height: 50px;
-        padding: 0 1rem; }
+        padding: 0 1rem;
+        -webkit-transition: all 300ms ease;
+        transition: all 300ms ease; }
         .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-list-item-link:hover {
           background-color: #f1f3f5;
+          border-color: #adb5bd;
           text-decoration: none; }
         .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-list-item-link-active {
-          border-bottom: 2px solid #5c7cfa; }
+          border-color: #5c7cfa; }
       .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-sub {
         background-color: #f1f3f5;
         display: -webkit-box;
@@ -61,8 +66,8 @@
         position: absolute;
         -webkit-transform: translateY(-1000px);
                 transform: translateY(-1000px);
-        -webkit-transition: opacity 500ms;
-        transition: opacity 500ms;
+        -webkit-transition: opacity 700ms;
+        transition: opacity 700ms;
         width: 100%;
         z-index: 99; }
         .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-sub .modern-nav-sub-list {
@@ -74,38 +79,19 @@
             padding: 5px 10px;
             margin-bottom: 0.25rem; }
             .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-sub .modern-nav-sub-list .modern-nav-sub-list-item .modern-nav-sub-list-item-link:hover {
-              background-color: red;
+              background-color: #e9ecef;
               text-decoration: none; }
+          .modern-nav .modern-nav-list .modern-nav-list-item .modern-nav-sub .modern-nav-sub-list .modern-nav-sub-list-title {
+            color: #adb5bd;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px; }
     .modern-nav .modern-nav-list .modern-nav-parent-item:hover .modern-nav-sub {
       opacity: 1;
       -webkit-transform: translateY(50px);
               transform: translateY(50px); }
-  .modern-nav .nav-item {
-    padding: 8px; }
-  .modern-nav .m-nav-parent:hover {
-    background-color: #f1f3f5; }
-    .modern-nav .m-nav-parent:hover .nav-link {
-      color: #868e96; }
-    .modern-nav .m-nav-parent:hover .m-nav-child {
-      opacity: 1;
-      -webkit-transform: translateY(7px);
-              transform: translateY(7px); }
-  .modern-nav .m-nav-parent .m-nav-child {
-    background-color: #f1f3f5;
-    left: 0;
-    opacity: 0;
-    padding: 1rem 2rem;
-    position: absolute;
-    -webkit-transform: translateY(-1000px);
-            transform: translateY(-1000px);
-    -webkit-transition: opacity 500ms;
-    transition: opacity 500ms;
-    width: 100%;
-    z-index: 99; }
-    .modern-nav .m-nav-parent .m-nav-child .m-nav-list {
-      list-style-type: none; }
-      .modern-nav .m-nav-parent .m-nav-child .m-nav-list-item-link {
-        color: #5c7cfa; }
 
 /**** DEMO STYLES ****/
 .jumbotron {

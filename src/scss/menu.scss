@@ -1,15 +1,18 @@
 /*------------------------------------------------------------------
-  VARIABLES
+  SETTINGS
 ------------------------------------------------------------------*/
 /**** COLORS ****/
+/* Colors provided by Open Color https://yeun.github.io/open-color/ */
 $white: #ffffff;
-$light-grey: #f1f3f5;
-$dark-grey: #868e96;
+$grey-1: #f1f3f5;
+$grey-2: #e9ecef;
+$grey-5: #adb5bd;
+$grey-6: #868e96;
 
 $primary: #5c7cfa;
-/**** PADDING ****/
+
+/**** SPACING ****/
 $menu-height: 50px; // height of the main navbar
-$nav-item-padding: 8px; // padding around main navbar link items
 
 
 /**** MODERN NAVBAR SUB MENU ****/
@@ -35,22 +38,25 @@ $nav-item-padding: 8px; // padding around main navbar link items
 
       .modern-nav-list-item-link {
         align-items: center;
-        color: $dark-grey;
+        border-bottom: 2px solid transparent;
+        color: $grey-6;
         display: flex;
         flex: 1;
         height: $menu-height;
         padding: 0 1rem;
+        transition: all 300ms ease;
         &:hover {
-          background-color: $light-grey;
+          background-color: $grey-1;
+          border-color: $grey-5;
           text-decoration: none;
         }
         &-active {
-          border-bottom: 2px solid $primary;
+          border-color: $primary;
         }
       }
 
       .modern-nav-sub {
-        background-color: $light-grey;
+        background-color: $grey-1;
         display: flex;
         flex-direction: row;
         left: 0;
@@ -59,7 +65,7 @@ $nav-item-padding: 8px; // padding around main navbar link items
         padding: 1rem 2rem;
         position: absolute;
         transform: translateY(-1000px);
-        transition: opacity 500ms;
+        transition: opacity 700ms;
         width: 100%;
         z-index: 99;
 
@@ -69,15 +75,23 @@ $nav-item-padding: 8px; // padding around main navbar link items
 
           .modern-nav-sub-list-item {
             .modern-nav-sub-list-item-link {
-              color: $dark-grey;
+              color: $grey-6;
               display: inline-block;
               padding: 5px 10px;
               margin-bottom: 0.25rem;
               &:hover {
-                background-color: red;
+                background-color: $grey-2;
                 text-decoration: none;
               }
             }
+          }
+          .modern-nav-sub-list-title {
+            color: $grey-5;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
           }
         }
       }
@@ -89,55 +103,22 @@ $nav-item-padding: 8px; // padding around main navbar link items
       }
     }
   }
-
-  .nav-item {
-    padding: $nav-item-padding;
-  }
-
-  .m-nav-parent {
-
-    &:hover {
-      background-color: $light-grey;
-
-      .nav-link {
-        color: $dark-grey;
-      }
-
-      .m-nav-child {
-        opacity: 1;
-        transform: translateY($nav-item-padding - 1px);
-      }
-    }
-    .m-nav-child {
-      background-color: $light-grey;
-      left: 0;
-      opacity: 0;
-      padding: 1rem 2rem;
-      position: absolute;
-      transform: translateY(-1000px);
-      transition: opacity 500ms;
-      width: 100%;
-      z-index: 99;
-
-      .m-nav-list {
-        list-style-type: none;
-
-        &-item {
-
-          &-link {
-            color: $primary;
-          }
-        }
-      }
-    }
-  }
 }
+
+
+@media (min-width: 576px) { }
+
+@media (min-width: 768px) { }
+
+@media (min-width: 992px) { }
+
+@media (min-width: 1200px) { }
 
 
 
 /**** DEMO STYLES ****/
 .jumbotron {
-  background-color: $light-grey;
+  background-color: $grey-1;
   border-radius: 0;
 }
 .modern-nav-brand {
