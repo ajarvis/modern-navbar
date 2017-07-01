@@ -2,22 +2,93 @@
   VARIABLES
 ------------------------------------------------------------------*/
 /**** COLORS ****/
-$bg-light-grey: #f1f3f5;
-$bg-dark-grey: #868e96;
-$text-primary: #5c7cfa;
+$white: #ffffff;
+$light-grey: #f1f3f5;
+$dark-grey: #868e96;
+
+$primary: #5c7cfa;
 /**** PADDING ****/
 $menu-height: 50px; // height of the main navbar
 $nav-item-padding: 8px; // padding around main navbar link items
 
-/**** BOOTSTRAP FIXES ****/
-.has-fixed-nav {
-  margin-top: $menu-height; // Bootstrap 4 Alpha 6 does not account for fixed nav
-}
 
 /**** MODERN NAVBAR SUB MENU ****/
-.modern-navbar {
-  padding-bottom: 0;
-  padding-top: 0;
+.modern-nav {
+  align-items: center;
+  background-color: $white;
+  display: flex;
+  padding: 0 1rem;
+  position: relative;
+
+  .modern-nav-brand {
+
+  }
+
+  .modern-nav-list {
+    display: flex;
+    list-style-type: none;
+    flex: 1;
+    margin: 0;
+
+    .modern-nav-list-item {
+      display: flex;
+
+      .modern-nav-list-item-link {
+        align-items: center;
+        color: $dark-grey;
+        display: flex;
+        flex: 1;
+        height: $menu-height;
+        padding: 0 1rem;
+        &:hover {
+          background-color: $light-grey;
+          text-decoration: none;
+        }
+        &-active {
+          border-bottom: 2px solid $primary;
+        }
+      }
+
+      .modern-nav-sub {
+        background-color: $light-grey;
+        display: flex;
+        flex-direction: row;
+        left: 0;
+        opacity: 0;
+        min-height: 200px;
+        padding: 1rem 2rem;
+        position: absolute;
+        transform: translateY(-1000px);
+        transition: opacity 500ms;
+        width: 100%;
+        z-index: 99;
+
+        .modern-nav-sub-list {
+          list-style-type: none;
+          margin: 0;
+
+          .modern-nav-sub-list-item {
+            .modern-nav-sub-list-item-link {
+              color: $dark-grey;
+              display: inline-block;
+              padding: 5px 10px;
+              margin-bottom: 0.25rem;
+              &:hover {
+                background-color: red;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .modern-nav-parent-item:hover {
+      .modern-nav-sub {
+        opacity: 1;
+        transform: translateY($menu-height);
+      }
+    }
+  }
 
   .nav-item {
     padding: $nav-item-padding;
@@ -26,10 +97,10 @@ $nav-item-padding: 8px; // padding around main navbar link items
   .m-nav-parent {
 
     &:hover {
-      background-color: $bg-light-grey;
+      background-color: $light-grey;
 
       .nav-link {
-        color: $bg-dark-grey;
+        color: $dark-grey;
       }
 
       .m-nav-child {
@@ -38,7 +109,7 @@ $nav-item-padding: 8px; // padding around main navbar link items
       }
     }
     .m-nav-child {
-      background-color: $bg-light-grey;
+      background-color: $light-grey;
       left: 0;
       opacity: 0;
       padding: 1rem 2rem;
@@ -54,7 +125,7 @@ $nav-item-padding: 8px; // padding around main navbar link items
         &-item {
 
           &-link {
-            color: $text-primary;
+            color: $primary;
           }
         }
       }
@@ -66,5 +137,10 @@ $nav-item-padding: 8px; // padding around main navbar link items
 
 /**** DEMO STYLES ****/
 .jumbotron {
-  background-color: $bg-dark-grey;
+  background-color: $light-grey;
+  border-radius: 0;
+}
+.modern-nav-brand {
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
