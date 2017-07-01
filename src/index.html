@@ -14,13 +14,12 @@
 
   <body>
 
-    <label class="modern-nav-toggle" for="modern-nav-toggle-input">Toggle</label>
-    <input class="modern-nav-toggle-input" type="checkbox" id="modern-nav-toggle-input" />
+    <span class="modern-nav-toggle">Toggle</span>
 
     <nav class="modern-nav">
 
+      <span class="modern-nav-toggle">Toggle</span>
       <span class="modern-nav-brand" href="#">Modern Navbar</span>
-      <label class="modern-nav-toggle" for="modern-nav-toggle-input">Toggle</label>
 
       <ul class="modern-nav-list">
         <li class="modern-nav-list-item">
@@ -28,7 +27,7 @@
         </li>
 
         <li class="modern-nav-list-item modern-nav-parent-item">
-          <a class="modern-nav-list-item-link" href="#">Text Mega Menu</a>
+          <a class="modern-nav-list-item-link" href="#">Simple Text Items</a>
           <div class="modern-nav-sub">
             <ul class="modern-nav-sub-list">
               <li class="modern-nav-sub-list-title">Category</li>
@@ -69,6 +68,51 @@
           </div>
         </li>
 
+        <li class="modern-nav-list-item modern-nav-parent-item">
+          <a class="modern-nav-list-item-link" href="#">Image Lists</a>
+          <div class="modern-nav-sub">
+            <ul class="modern-nav-sub-list">
+              <li class="modern-nav-sub-list-title">Category</li>
+              <li class="modern-nav-sub-list-item">
+                <a class="modern-nav-sub-list-item-link" href="#">
+                  <img src="http://via.placeholder.com/300x100">
+                </a>
+              </li>
+              <li class="modern-nav-sub-list-item">
+                <a class="modern-nav-sub-list-item-link" href="#">
+                  <img src="http://via.placeholder.com/300x100">
+                </a>
+              </li>
+            </ul>
+            <ul class="modern-nav-sub-list">
+              <li class="modern-nav-sub-list-title">Category</li>
+              <li class="modern-nav-sub-list-item">
+                <a class="modern-nav-sub-list-item-link" href="#">
+                  <img src="http://via.placeholder.com/300x100">
+                </a>
+              </li>
+              <li class="modern-nav-sub-list-item">
+                <a class="modern-nav-sub-list-item-link" href="#">
+                  <img src="http://via.placeholder.com/300x100">
+                </a>
+              </li>
+            </ul>
+            <ul class="modern-nav-sub-list">
+              <li class="modern-nav-sub-list-title">Category</li>
+              <li class="modern-nav-sub-list-item">
+                <a class="modern-nav-sub-list-item-link" href="#">
+                  <img src="http://via.placeholder.com/300x100">
+                </a>
+              </li>
+              <li class="modern-nav-sub-list-item">
+                <a class="modern-nav-sub-list-item-link" href="#">
+                  <img src="http://via.placeholder.com/300x100">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
       </ul>
 
       <ul class="ml-auto">
@@ -76,6 +120,9 @@
       </ul>
 
     </nav>
+
+    <div class="modern-nav-overlay"></div>
+
 
     <div class="jumbotron" style="margin-top: 500px;">
       <div class="container-fluid">
@@ -140,12 +187,32 @@
       </div>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="assets/libs/bootstrap-4/bootstrap.min.js"></script>
 
     <script>
     $(document).ready(function() {
+      // Define Elements
+      var $navToggle = $(".modern-nav-toggle");
+      var $modernNav = $(".modern-nav");
+      var $navParentLink = $(".modern-nav-parent-item").find(".modern-nav-list-item-link");
+      var $subMenu = ".modern-nav-sub";
+
+      // Hide/Show Navbar on Mobile
+      var navStatus = "default"; // accepts strings 'default' or 'vertical'
+      $navToggle.on("click", function() {
+        $modernNav.toggleClass("modern-nav-open");
+      })
+
+      // Open sub nav lists on mobile
+      if (navStatus == "vertical") {
+        $navParentLink.on("click", function(){
+          console.log("clicked");
+          $(this).next(".modern-nav-sub").slideToggle(300);
+        })
+      }
+
     });
     </script>
 

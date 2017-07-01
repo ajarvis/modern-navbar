@@ -11,36 +11,30 @@ $grey-6: #868e96;
 $primary: #5c7cfa;
 
 /**** SPACING ****/
-$menu-height: 50px; // height of the main navbar
+$menu-height: 50px; // set height of the navbar
 
 
-/**** MODERN NAVBAR SUB MENU ****/
-.modern-nav-toggle {
+/**** NAV OPEN/CLOSE TOGGLE ****/
+.modern-nav-toggle {}
 
-}
-.modern-nav-toggle-input {
-  transform: translateY(-1000px);
-}
-
-.modern-nav-toggle-input[type=checkbox]:checked {
-  transform: translateX(300px);
-}
-.modern-nav-toggle-input[type=checkbox]:checked + .modern-nav {
-  transform: translateX(0);
-}
-
+/**** NAVBAR LAYOUT + STYLING ****/
 .modern-nav {
   background-color: $white;
+  box-shadow: 4px 0px 5px -2px rgba(0,0,0,.1);
   display: flex;
   flex-direction: column;
   left: 0;
   height: 100vh;
-  padding: 0 1rem;
   position: fixed;
+  transition: transform 300ms ease;
   transform: translateX(-300px);
   top: 0;
   width: 300px;
   z-index: 9;
+
+  &-open {
+    transform: translateX(0);
+  }
 
   .modern-nav-list {
     display: flex;
@@ -52,10 +46,11 @@ $menu-height: 50px; // height of the main navbar
 
     .modern-nav-list-item {
       display: flex;
+      flex-direction: column;
 
       .modern-nav-list-item-link {
         align-items: center;
-        border-bottom: 2px solid transparent;
+        border-left: 4px solid transparent;
         color: $grey-6;
         display: flex;
         flex: 1;
@@ -70,23 +65,19 @@ $menu-height: 50px; // height of the main navbar
         &-active {
           border-color: $primary;
         }
+        &:focus {
+          text-decoration: none;
+        }
       }
 
       .modern-nav-sub {
         background-color: $grey-1;
-        display: flex;
+        display: none;
         flex-direction: column;
-        left: 0;
-        opacity: 0;
-        min-height: 200px;
-        padding: 1rem 2rem;
-        position: absolute;
-        transform: translateY(-1000px);
-        transition: opacity 700ms;
-        width: 100%;
         z-index: 99;
 
         .modern-nav-sub-list {
+          padding: 1rem;
           list-style-type: none;
           margin: 0;
 
@@ -99,6 +90,9 @@ $menu-height: 50px; // height of the main navbar
               &:hover {
                 background-color: $grey-2;
                 text-decoration: none;
+              }
+              img {
+                width: 100%;
               }
             }
           }
@@ -115,27 +109,27 @@ $menu-height: 50px; // height of the main navbar
     }
     .modern-nav-parent-item:hover {
       .modern-nav-sub {
-        opacity: 1;
-        transform: translateY($menu-height);
+
       }
     }
   }
 }
 
 
-@media (min-width: 576px) {
 
-}
+@media (min-width: 576px) {}
 
 @media (min-width: 768px) {
-  .modern-nav-toggle, .modern-nav-toggle-input {
+  .modern-nav-toggle {
     display: none;
   }
   .modern-nav {
     align-items: center;
+    box-shadow: none;
     flex-direction: row;
     height: auto;
     left: auto;
+    padding: 0 1rem;
     position: relative;
     transform: none;
     top: auto;
@@ -143,8 +137,35 @@ $menu-height: 50px; // height of the main navbar
     .modern-nav-list {
       flex-direction: row;
       .modern-nav-list-item {
+        flex-direction: row;
+        .modern-nav-list-item-link {
+          border-left: none;
+          border-bottom: 2px solid transparent;
+          &:hover {
+            background-color: $grey-1;
+            border-color: $grey-5;
+            text-decoration: none;
+          }
+          &-active {
+            border-color: $primary;
+          }
+        }
         .modern-nav-sub {
+          display: flex;
           flex-direction: row;
+          left: 0;
+          min-height: 200px;
+          opacity: 0;
+          position: absolute;
+          transform: translateY(-1000px);
+          transition: opacity 700ms;
+          width: 100%;
+        }
+      }
+      .modern-nav-parent-item:hover {
+        .modern-nav-sub {
+          opacity: 1;
+          transform: translateY($menu-height);
         }
       }
     }
