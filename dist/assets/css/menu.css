@@ -195,4 +195,12 @@
       .modern-nav .modern-nav-list .modern-nav-parent-item:hover .modern-nav-sub {
         opacity: 1;
         -webkit-transform: translateY(50px);
-                transform: translateY(50px); } }
+                transform: translateY(50px); }
+      .modern-nav .modern-nav-list .modern-nav-parent-item:after {
+        color: #adb5bd;
+        content: "\f107";
+        font-size: 0.75rem;
+        font-family: "FontAwesome";
+        left: -10px;
+        top: 15px;
+        position: relative; } }

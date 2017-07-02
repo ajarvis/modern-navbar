@@ -117,11 +117,6 @@ $menu-width: 350px; // set width for mobile vertical view
         }
       }
     }
-    .modern-nav-parent-item:hover {
-      .modern-nav-sub {
-
-      }
-    }
   }
   &-open {
     transform: translateX(0);
@@ -144,9 +139,6 @@ $menu-width: 350px; // set width for mobile vertical view
     display: block;
   }
 }
-
-
-@media (min-width: 576px) {}
 
 @media (min-width: 768px) {
   .modern-nav-toggle {
@@ -192,10 +184,21 @@ $menu-width: 350px; // set width for mobile vertical view
           width: 100%;
         }
       }
-      .modern-nav-parent-item:hover {
-        .modern-nav-sub {
-          opacity: 1;
-          transform: translateY($menu-height);
+      .modern-nav-parent-item {
+        &:hover {
+          .modern-nav-sub {
+            opacity: 1;
+            transform: translateY($menu-height);
+          }
+        }
+        &:after {
+          color: $grey-5;
+          content: "\f107";
+          font-size: 0.75rem;
+          font-family: "FontAwesome";
+          left: -10px;
+          top: 15px;
+          position: relative;
         }
       }
     }
