@@ -12,10 +12,7 @@ $primary: #5c7cfa;
 
 /**** SPACING ****/
 $menu-height: 50px; // set height of the navbar
-
-
-/**** NAV OPEN/CLOSE TOGGLE ****/
-.modern-nav-toggle {}
+$menu-width: 350px; // set width for mobile vertical view
 
 /**** NAVBAR LAYOUT + STYLING ****/
 .modern-nav {
@@ -27,13 +24,25 @@ $menu-height: 50px; // set height of the navbar
   height: 100vh;
   position: fixed;
   transition: transform 300ms ease;
-  transform: translateX(-300px);
+  transform: translateX(-$menu-width);
   top: 0;
-  width: 300px;
-  z-index: 9;
+  width: $menu-width;
+  z-index: 20;
 
-  &-open {
-    transform: translateX(0);
+  .modern-nav-toggle {
+    color: $grey-1;
+    position: absolute;
+    top: 5px;
+    right: -40px;
+    &:before {
+      content: "\f0c9";
+      font-family: "FontAwesome";
+      font-size: 1.75rem;
+    }
+    &:hover {
+      color: $white;
+      cursor: pointer;
+    }
   }
 
   .modern-nav-list {
@@ -47,6 +56,7 @@ $menu-height: 50px; // set height of the navbar
     .modern-nav-list-item {
       display: flex;
       flex-direction: column;
+      min-height: $menu-height;
 
       .modern-nav-list-item-link {
         align-items: center;
@@ -54,7 +64,7 @@ $menu-height: 50px; // set height of the navbar
         color: $grey-6;
         display: flex;
         flex: 1;
-        height: $menu-height;
+        min-height: $menu-height;
         padding: 0 1rem;
         transition: all 300ms ease;
         &:hover {
@@ -74,7 +84,7 @@ $menu-height: 50px; // set height of the navbar
         background-color: $grey-1;
         display: none;
         flex-direction: column;
-        z-index: 99;
+        z-index: 50;
 
         .modern-nav-sub-list {
           padding: 1rem;
@@ -113,8 +123,27 @@ $menu-height: 50px; // set height of the navbar
       }
     }
   }
+  &-open {
+    transform: translateX(0);
+    .modern-nav-toggle:before {
+      content: "\f00d";
+    }
+  }
 }
 
+.modern-nav-overlay {
+  background-color: rgba(0,0,0,0.4);
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  &-open {
+    display: block;
+  }
+}
 
 
 @media (min-width: 576px) {}
@@ -125,6 +154,7 @@ $menu-height: 50px; // set height of the navbar
   }
   .modern-nav {
     align-items: center;
+    border-bottom: 1px solid $grey-1;
     box-shadow: none;
     flex-direction: row;
     height: auto;
@@ -169,25 +199,5 @@ $menu-height: 50px; // set height of the navbar
         }
       }
     }
-    .modern-nav-brand {
-      padding-right: 2rem;
-    }
-
   }
-}
-
-@media (min-width: 992px) { }
-
-@media (min-width: 1200px) { }
-
-
-
-/**** DEMO STYLES ****/
-.jumbotron {
-  background-color: $grey-1;
-  border-radius: 0;
-}
-.modern-nav-brand {
-  letter-spacing: 2px;
-  text-transform: uppercase;
 }
